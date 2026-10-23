@@ -1,0 +1,296 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..82520ca[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m/tmp/[m
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..069e19e[m
+[1m--- /dev/null[m
+[1m+++ b/README.md[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32m# Il mio sito PHP[m
+[32m+[m
+[32m+[m[32mEsercitazioni PHP di Sebastiano Pogliani, classe 5Einf[m
+[32m+[m
+[32m+[m[32mQuesto repository contiene l'intero sito: pagine PHP, HTML, CSS e altre risorse.[m
+[32m+[m[32mLa prima attivita' e' es01a-hello-world/index.php.[m
+[32m+[m[32mLa pagina dell'esercizio Git e GitHub e' es01b-hello-world/index.php.[m
+[32m+[m
+[32m+[m[32mSu Web4Student lavoro nella cartella personale ~/www, gia' pubblicata dal server.[m
+[32m+[m[32mLa sottocartella tmp contiene file temporanei e viene esclusa da Git.[m
+[1mdiff --git a/adminer.php b/adminer.php[m
+[1mnew file mode 120000[m
+[1mindex 0000000..f6d2200[m
+[1m--- /dev/null[m
+[1m+++ b/adminer.php[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m/var/www/html/adminer.php[m
+\ No newline at end of file[m
+[1mdiff --git a/es01b-hello-world/index.php b/es01b-hello-world/index.php[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9d9b870[m
+[1m--- /dev/null[m
+[1m+++ b/es01b-hello-world/index.php[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32m<?php[m
+[32m+[m[32mdeclare(strict_types=1);[m
+[32m+[m
+[32m+[m[32m$nome = 'Sebastiano';[m
+[32m+[m[32m$messaggio = "Hello World dell'esercizio b.";[m
+[32m+[m[32m?>[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="it">[m
+[32m+[m[32m<head>[m
+[32m+[m[32m    <meta charset="UTF-8">[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1">[m
+[32m+[m[32m    <title>Esercizio b — Hello World</title>[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body>[m
+[32m+[m[32m    <h1><?php echo 'Hello, World!'; ?></h1>[m
+[32m+[m[32m    <p>Studente: <?= htmlspecialchars($nome, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></p>[m
+[32m+[m[32m    <p><?= htmlspecialchars($messaggio, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></p>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/es02a/index.php b/es02a/index.php[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d35955d[m
+[1m--- /dev/null[m
+[1m+++ b/es02a/index.php[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m    <head>[m
+[32m+[m[32m        <title>Index</title>[m
+[32m+[m[32m    </head>[m
+[32m+[m[32m    <body>[m
+[32m+[m[32m        <h3>Accesso a pagina riservata</h3>[m
+[32m+[m[32m        <form action="login.php" method="post">[m
+[32m+[m
+[32m+[m[32m            <label for="username">username</label>[m
+[32m+[m[32m            <input type="text" name="nome_utente" placeholder="Inserisci il nome utente"><br>[m
+[32m+[m
+[32m+[m[32m            <label for="password">password</label>[m
+[32m+[m[32m            <input type="password" name="password" placeholder="inserisci la password"><br>[m
+[32m+[m
+[32m+[m[32m            <input type="submit" name="submit" value="Invia">[m
+[32m+[m[32m        </form>[m
+[32m+[m[32m    </body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/es02a/login.php b/es02a/login.php[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ed1e424[m
+[1m--- /dev/null[m
+[1m+++ b/es02a/login.php[m
+[36m@@ -0,0 +1,21 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m  <head>[m
+[32m+[m[32m    <title>Pagina di Login</title>[m
+[32m+[m[32m  </head>[m
+[32m+[m[32m  <body>[m
+[32m+[m[32m    <h2>Controllo delle Credenziali</h2>[m
+[32m+[m[32m    <?php[m
+[32m+[m[32m    $usr = $_POST["nome_utente"];[m
+[32m+[m[32m    $psw = $_POST["password"];[m
+[32m+[m
+[32m+[m[32m    $r_usr = "Tiziano";[m
+[32m+[m[32m    $r_psw = "123456";[m
+[32m+[m[32m    if($usr == $r_usr && $psw == $r_psw){[m
+[32m+[m	[32mecho "<h4> Benvenuto " . $r_usr . " nell'area riservata del sito";[m
+[32m+[m[32m    }else{[m
+[32m+[m	[32mecho "<h4> Attenzione! Nome utente o password sbagliati!<br>accesso negato!</h4>";[m
+[32m+[m[32m    }[m
+[32m+[m[32m    ?>[m
+[32m+[m[32m  </body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/index.php b/index.php[m
+[1mnew file mode 100644[m
+[1mindex 0000000..41bf6dd[m
+[1m--- /dev/null[m
+[1m+++ b/index.php[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m  <head>[m
+[32m+[m[32m    <title>Index Pogliani</title>[m
+[32m+[m[32m  </head>[m
+[32m+[m[32m  <body>[m
+[32m+[m[32m    <h2>Link esercizi</h2>[m
+[32m+[m
+[32m+[m[32m    <p>(es 01a, 01b, 01c verranno inseriti nel database in futuro)</p>[m
+[32m+[m[32m    <li><a href="es02a/index.php" target="_blank">ES02-A</a></li>[m
+[32m+[m[32m  </body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/legacy/index.html b/legacy/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cf168d1[m
+[1m--- /dev/null[m
+[1m+++ b/legacy/index.html[m
+[36m@@ -0,0 +1,46 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="it">[m
+[32m+[m[32m<head>[m
+[32m+[m[32m    <meta charset="UTF-8">[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+[32m+[m[32m    <title>SEBASTIANO POGLIANI - Classe 5EINF</title>[m
+[32m+[m[32m    <link rel="stylesheet" href="style.css">[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body>[m
+[32m+[m[32m    <h1>Benvenuto/a SEBASTIANO POGLIANI!</h1>[m
+[32m+[m[32m    <p>Questa è la tua area web personale.</p>[m
+[32m+[m[32m    <p>Classe: 5EINF</p>[m
+[32m+[m[32m    <p>Username: pogliani.sebastiano</p>[m
+[32m+[m[41m    [m
+[32m+[m[32m    <div class="example-section">[m
+[32m+[m[32m        <h2>🛠️ Strumenti Disponibili</h2>[m
+[32m+[m[32m        <ul>[m
+[32m+[m[32m            <li><a href="adminer.php" target="_blank">🗄️ Adminer Personale</a></li>[m
+[32m+[m[32m            <li><a href="/adminer.php" target="_blank">🌐 Adminer Globale</a></li>[m
+[32m+[m[32m            <li><a href="info.php" target="_blank">ℹ️ Informazioni PHP</a></li>[m
+[32m+[m[32m            <li><a href="style.css" target="_blank">📄 Foglio CSS</a></li>[m
+[32m+[m[32m            <li><a href="script.js" target="_blank">🔧 JavaScript</a></li>[m
+[32m+[m[32m        </ul>[m
+[32m+[m[32m    </div>[m
+[32m+[m[41m    [m
+[32m+[m[32m    <div class="example-section">[m
+[32m+[m[32m        <h2>📁 Tipi di File Supportati</h2>[m
+[32m+[m[32m        <p>Il tuo sito web supporta tutti questi tipi di file:</p>[m
+[32m+[m[32m        <ul>[m
+[32m+[m[32m            <li>📄 HTML (.html) - Pagine web</li>[m
+[32m+[m[32m            <li>🐘 PHP (.php) - Scripting server-side</li>[m
+[32m+[m[32m            <li>🎨 CSS (.css) - Fogli di stile</li>[m
+[32m+[m[32m            <li>⚡ JavaScript (.js) - Scripting client-side</li>[m
+[32m+[m[32m            <li>🖼️ Immagini (.jpg, .png, .gif, .svg)</li>[m
+[32m+[m[32m            <li>📋 Documenti (.txt, .pdf)</li>[m
+[32m+[m[32m            <li>⚙️ Configurazioni (.xml, .json)</li>[m
+[32m+[m[32m        </ul>[m
+[32m+[m[32m    </div>[m
+[32m+[m[41m    [m
+[32m+[m[32m    <hr>[m
+[32m+[m[32m    <p>Puoi modificare questo file per creare il tuo sito web.</p>[m
+[32m+[m[32m    <p>File location: ~/www/index.html</p>[m
+[32m+[m[41m    [m
+[32m+[m[32m    <script src="script.js"></script>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/legacy/info.php b/legacy/info.php[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ef20e74[m
+[1m--- /dev/null[m
+[1m+++ b/legacy/info.php[m
+[36m@@ -0,0 +1,63 @@[m
+[32m+[m[32m<?php[m
+[32m+[m[32m/**[m
+[32m+[m[32m * Pagina di informazioni PHP[m
+[32m+[m[32m * Mostra la configurazione del server PHP[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32m// Intestazione della pagina[m
+[32m+[m[32mecho "<!DOCTYPE html>[m
+[32m+[m[32m<html lang='it'>[m
+[32m+[m[32m<head>[m
+[32m+[m[32m    <meta charset='UTF-8'>[m
+[32m+[m[32m    <meta name='viewport' content='width=device-width, initial-scale=1.0'>[m
+[32m+[m[32m    <title>Informazioni PHP - SEBASTIANO POGLIANI</title>[m
+[32m+[m[32m    <style>[m
+[32m+[m[32m        body {[m
+[32m+[m[32m            font-family: Arial, sans-serif;[m
+[32m+[m[32m            margin: 20px;[m
+[32m+[m[32m            background-color: #f5f5f5;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        .header {[m
+[32m+[m[32m            background: #2c3e50;[m
+[32m+[m[32m            color: white;[m
+[32m+[m[32m            padding: 15px;[m
+[32m+[m[32m            border-radius: 5px;[m
+[32m+[m[32m            margin-bottom: 20px;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        .info-box {[m
+[32m+[m[32m            background: white;[m
+[32m+[m[32m            padding: 15px;[m
+[32m+[m[32m            margin: 10px 0;[m
+[32m+[m[32m            border-radius: 5px;[m
+[32m+[m[32m            box-shadow: 0 2px 5px rgba(0,0,0,0.1);[m
+[32m+[m[32m        }[m
+[32m+[m[32m    </style>[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body>[m
+[32m+[m[32m    <div class='header'>[m
+[32m+[m[32m        <h1>ℹ️ Informazioni PHP</h1>[m
+[32m+[m[32m        <p>Configurazione del server PHP per SEBASTIANO POGLIANI</p>[m
+[32m+[m[32m    </div>[m
+[32m+[m[41m    [m
+[32m+[m[32m    <div class='info-box'>[m
+[32m+[m[32m        <h2>📊 Dati Studente</h2>[m
+[32m+[m[32m        <p><strong>Nome:</strong> SEBASTIANO POGLIANI</p>[m
+[32m+[m[32m        <p><strong>Classe:</strong> 5EINF</p>[m
+[32m+[m[32m        <p><strong>Username:</strong> pogliani.sebastiano</p>[m
+[32m+[m[32m        <p><strong>Data generazione:</strong> " . date('d/m/Y H:i:s') . "</p>[m
+[32m+[m[32m    </div>[m
+[32m+[m[41m    [m
+[32m+[m[32m    <div class='info-box'>[m
+[32m+[m[32m        <h2>⚙️ Configurazione PHP</h2>[m
+[32m+[m[32m        <p>Di seguito sono riportate le informazioni complete sulla configurazione PHP:</p>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m";[m
+[32m+[m
+[32m+[m[32m// Mostra le informazioni PHP[m
+[32m+[m[32mphpinfo();[m
+[32m+[m
+[32m+[m[32m// Chiusura della pagina[m
+[32m+[m[32mecho "[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>";[m
+[32m+[m[32m?>[m
+[1mdiff --git a/legacy/script.js b/legacy/script.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5356168[m
+[1m--- /dev/null[m
+[1m+++ b/legacy/script.js[m
+[36m@@ -0,0 +1,15 @@[m
+[32m+[m[32m// JavaScript di esempio[m
+[32m+[m[32mdocument.addEventListener('DOMContentLoaded', function() {[m
+[32m+[m[32m    console.log('JavaScript caricato correttamente!');[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Aggiunge data e ora corrente[m
+[32m+[m[32m    const now = new Date();[m
+[32m+[m[32m    const timeString = now.toLocaleString('it-IT');[m
+[32m+[m[41m    [m
+[32m+[m[32m    const footer = document.querySelector('body');[m
+[32m+[m[32m    if (footer) {[m
+[32m+[m[32m        const timeDiv = document.createElement('div');[m
+[32m+[m[32m        timeDiv.innerHTML = '<hr><small>Pagina caricata il: ' + timeString + '</small>';[m
+[32m+[m[32m        footer.appendChild(timeDiv);[m
+[32m+[m[32m    }[m
+[32m+[m[32m});[m
+[1mdiff --git a/legacy/style.css b/legacy/style.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..09a8b37[m
+[1m--- /dev/null[m
+[1m+++ b/legacy/style.css[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m/* Foglio di stile di esempio */[m
+[32m+[m[32mbody {[m
+[32m+[m[32m    font-family: Arial, sans-serif;[m
+[32m+[m[32m    background-color: #f5f5f5;[m
+[32m+[m[32m    color: #333;[m
+[32m+[m[32m    margin: 0;[m
+[32m+[m[32m    padding: 20px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mh1 {[m
+[32m+[m[32m    color: #2c3e50;[m
+[32m+[m[32m    border-bottom: 2px solid #3498db;[m
+[32m+[m[32m    padding-bottom: 10px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.example-section {[m
+[32m+[m[32m    background: white;[m
+[32m+[m[32m    padding: 15px;[m
+[32m+[m[32m    margin: 10px 0;[m
+[32m+[m[32m    border-radius: 5px;[m
+[32m+[m[32m    box-shadow: 0 2px 5px rgba(0,0,0,0.1);[m
+[32m+[m[32m}[m
